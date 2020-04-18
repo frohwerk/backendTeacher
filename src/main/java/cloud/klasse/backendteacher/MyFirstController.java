@@ -1,4 +1,4 @@
-package cloud.klasse.backendteacher.controllers;
+package cloud.klasse.backendteacher;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
