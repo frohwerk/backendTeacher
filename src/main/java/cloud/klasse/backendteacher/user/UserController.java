@@ -2,6 +2,7 @@ package cloud.klasse.backendteacher.user;
 
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +19,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class UserController {
 
-    private final UserService userService;
+    @Autowired
+    private UserService userService;
 
     @PostMapping("/user")
     public ResponseEntity<User> createUser (@RequestBody final User user) {
