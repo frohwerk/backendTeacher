@@ -3,6 +3,8 @@ package cloud.klasse.backendteacher.user;
 import java.net.URI;
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +20,7 @@ public class UserService {
 
     private final RestTemplate restTemplate;
     private final String backendUrl;
+    private final Logger log = LoggerFactory.getLogger(UserService.class);
 
     public UserService(final RestTemplate restTemplate,
                        @Value("${backend.server.url:http://localhost:8080}") final String backendUrl) {

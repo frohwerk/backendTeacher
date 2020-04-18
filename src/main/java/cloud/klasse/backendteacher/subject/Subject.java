@@ -10,5 +10,5 @@ import lombok.NoArgsConstructor;
 public class Subject {
 
     private long id;
-    private
+
 }

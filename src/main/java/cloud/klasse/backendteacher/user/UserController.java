@@ -2,6 +2,8 @@ package cloud.klasse.backendteacher.user;
 
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,11 +23,12 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+    private final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @PostMapping("/user")
     public ResponseEntity<User> createUser (@RequestBody final User user) {
         final Optional<User> optionalUser = userService.createUser(user);
-        log.info("Creates user with userName: {}", user.getUserName());
+        logger.info("Creates user with userName: {}", user.getUserName());
         return optionalUser.map((final User responseUser) -> new ResponseEntity<>(responseUser, HttpStatus.CREATED))
                            .orElseGet(() -> ResponseEntity.notFound().build());
     }
@@ -33,7 +36,7 @@ public class UserController {
     @GetMapping("/user/{id}")
     public ResponseEntity<User> getUser (@PathVariable final long id) {
         final Optional<User> optionalUser = userService.getUser(id);
-        log.info("Get user with userid: {}", id);
+        logger.info("Get user with userid: {}", id);
         return optionalUser.map(ResponseEntity::ok)
                            .orElseGet(() -> ResponseEntity.notFound().build());
     }
