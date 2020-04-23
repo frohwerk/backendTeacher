@@ -20,7 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @WebMvcTest(SubjectController.class)
 class SubjectControllerTest {
-
+/*
     @Autowired
     MockMvc mockMvc;
 
@@ -41,6 +41,6 @@ class SubjectControllerTest {
         when(subjectService.createSubject(s)).thenReturn(Optional.empty());
         this.mockMvc.perform(post("/subject").contentType(MediaType.APPLICATION_JSON).content(requestJson)).andExpect(status().isNotFound());
     }
-
+*/
 
 }
